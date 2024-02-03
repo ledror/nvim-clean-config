@@ -36,3 +36,6 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- for some reason this mapping exists, idk what it does but it fucks with me
+vim.keymap.set("n", "<C-l>", "<nop>")
