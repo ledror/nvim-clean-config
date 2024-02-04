@@ -26,7 +26,7 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "clangd",
+                -- "clangd", -- installation from somewhere else
                 "pyright",
             },
             handlers = {
@@ -52,6 +52,11 @@ return {
                 end,
             }
         })
+
+        local lspconfig = require("lspconfig")
+        lspconfig.clangd.setup {
+            capabilities = capabilities
+        }
 
         vim.diagnostic.config({
             -- update_in_insert = true,

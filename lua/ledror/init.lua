@@ -10,6 +10,7 @@ require("ledror.init_lazy")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
 
 local autogroup = vim.api.nvim_create_augroup
 local LspGroup = autogroup("LspGroup", {})
@@ -35,3 +36,11 @@ autocmd('LspAttach', {
     end
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = { "*.h", "*.m" },
+    callback = function()
+        if vim.bo.filetype == "objcpp" or vim.bo.filetype == "matlab" then
+            vim.bo.filetype = "objc"
+        end
+    end
+})
