@@ -31,7 +31,6 @@ return {
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -50,6 +49,18 @@ return {
                         }
                     }
                 end,
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup {
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "off",
+                                },
+                            },
+                        },
+                    }
+                end
             }
         })
 
