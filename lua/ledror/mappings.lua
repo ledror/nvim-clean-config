@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- very useful
+vim.keymap.set("n", "<Esc>", "<cmd> noh <CR>")
+
 -- insert mode navigations
 vim.keymap.set("i", "<C-b>", "<Esc>^i")
 vim.keymap.set("i", "<C-e>", "<Esc>$a")

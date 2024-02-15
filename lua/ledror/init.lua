@@ -12,11 +12,12 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
-local autogroup = vim.api.nvim_create_augroup
-local LspGroup = autogroup("LspGroup", {})
+local augroup = vim.api.nvim_create_augroup
+local LspGroup = augroup("LspGroup", {})
 
 
 local autocmd = vim.api.nvim_create_autocmd
+local yank_group = augroup("HighlightYank", {})
 
 autocmd('LspAttach', {
     group = LspGroup,
@@ -34,6 +35,17 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     end
+})
+
+autocmd('TextYankPost', {
+    group = yank_group,
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 40,
+        })
+    end,
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
