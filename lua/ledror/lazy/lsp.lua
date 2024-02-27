@@ -28,6 +28,7 @@ return {
                 "lua_ls",
                 -- "clangd", -- installation from somewhere else
                 "pyright",
+                "gopls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -56,6 +57,20 @@ return {
                             python = {
                                 analysis = {
                                     typeCheckingMode = "off",
+                                },
+                            },
+                        },
+                    }
+                end,
+                ["gopls"] = function ()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.gopls.setup {
+                        settings = {
+                            gopls = {
+                                completeUnimported = true,
+                                usePlaceholders = true,
+                                analyses = {
+                                    unusedparams = true,
                                 },
                             },
                         },
