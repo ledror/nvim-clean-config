@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
+-- vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format) -- using conform instead
 
 -- actually, these are the best remaps
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
