@@ -5,7 +5,7 @@ return {
 		conform.setup({
 			formatters = {
 				clang_format = {
-					args = '-style="{IndentWidth: 4,TabWidth: 4}"',
+					args = { "--style", "{IndentWidth: 4,TabWidth: 4}" },
 				},
 				stylua = {
 					inherit = true,
