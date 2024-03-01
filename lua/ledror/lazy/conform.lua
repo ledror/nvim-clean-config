@@ -19,6 +19,7 @@ return {
 				c = { "clang_format" },
 				cpp = { "clang_format" },
 				objc = { "clang_format" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
