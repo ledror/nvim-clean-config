@@ -20,6 +20,8 @@ return {
 				cpp = { "clang_format" },
 				objc = { "clang_format" },
 				rust = { "rustfmt" },
+				["*"] = { "codespell" },
+				["_"] = { "trim_whitespace" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
