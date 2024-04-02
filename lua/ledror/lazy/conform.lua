@@ -5,7 +5,7 @@ return {
 		conform.setup({
 			formatters = {
 				clang_format = {
-					args = { "--style", "{IndentWidth: 4,TabWidth: 4}" },
+					args = { "--style", "{BasedOnStyle: GOOGLE, IndentWidth: 4, TabWidth: 4, ColumnLimit: 100}" },
 				},
 				stylua = {
 					inherit = true,
@@ -20,8 +20,6 @@ return {
 				cpp = { "clang_format" },
 				objc = { "clang_format" },
 				rust = { "rustfmt" },
-				["*"] = { "codespell" },
-				["_"] = { "trim_whitespace" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
