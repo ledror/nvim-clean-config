@@ -47,3 +47,10 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- for some reason this mapping exists, idk what it does but it fucks with me
 vim.keymap.set("n", "<C-l>", "<nop>")
+
+-- terminal stuff
+vim.keymap.set("n", "<M-t>", ":terminal <CR>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
+
+vim.keymap.set("n", "<M-v>", ":vsplit <CR>")
+vim.keymap.set("n", "<M-h>", ":split <CR>")
