@@ -54,3 +54,18 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 
 vim.keymap.set("n", "<M-v>", ":vsplit <CR>")
 vim.keymap.set("n", "<M-h>", ":split <CR>")
+
+vim.keymap.set('', "<S-Down>", "<nop>")
+vim.keymap.set('', "<S-Up>", "<nop>")
+
+-- for wrapped lines
+local options = { noremap = true, silent = true, expr = true }
+
+function Gvcountfunc(k)
+    return ((vim.v.count == 0) and ('g' .. k)) or k
+end
+
+vim.keymap.set('', 'j', function() return Gvcountfunc('j') end, options)
+vim.keymap.set('', 'k', function() return Gvcountfunc('k') end, options)
+vim.keymap.set('', '<Down>', function() return Gvcountfunc('j') end, options)
+vim.keymap.set('', '<Up>', function() return Gvcountfunc('k') end, options)
